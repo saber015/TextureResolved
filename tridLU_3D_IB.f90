@@ -252,25 +252,26 @@ subroutine immersed_boundaries_U(u,rhsu,Lu,grid,myid)
      rhsuIB(i,k,j) = -beta*LuIB(i,k,j)   !Akshath: -beta/dyub2*rhsuIB(i,k,j+1)   
    enddo
 
-   do ilist = 1,nlist_ib_f(grid)
-     i = f_list_ib(1,ilist,grid)
-     k = f_list_ib(2,ilist,grid)
-     j = f_list_ib(3,ilist,grid)
-     i2= f_list_ib(4,ilist,grid)
-     k2= f_list_ib(5,ilist,grid)
-     j2= f_list_ib(6,ilist,grid)
-     i3= f_list_ib(7,ilist,grid)
-     k3= f_list_ib(8,ilist,grid)
-     j3= f_list_ib(9,ilist,grid)
+! Mel: Doesnt work at the moment 
+!   do ilist = 1,nlist_ib_f(grid)
+!     i = f_list_ib(1,ilist,grid)
+!     k = f_list_ib(2,ilist,grid)
+!     j = f_list_ib(3,ilist,grid)
+!     i2= f_list_ib(4,ilist,grid)
+!     k2= f_list_ib(5,ilist,grid)
+!     j2= f_list_ib(6,ilist,grid)
+!     i3= f_list_ib(7,ilist,grid)
+!     k3= f_list_ib(8,ilist,grid)
+!     j3= f_list_ib(9,ilist,grid)
      
-!     w1= w_list_ib(3,ilist,grid) ! weighting if boundary v is non-zero
-     w2= w_list_ib(1,ilist,grid)
-     w3= w_list_ib(2,ilist,grid)
+!!     w1= w_list_ib(3,ilist,grid) ! weighting if boundary v is non-zero
+!     w2= w_list_ib(1,ilist,grid)
+!     w3= w_list_ib(2,ilist,grid)
 
-     v_f = w2*u1PL(i2,k2,j2) + w3*u1PL(i3,k3,j3)
+!     v_f = w2*u1PL(i2,k2,j2) + w3*u1PL(i3,k3,j3)
 
-     rhsuIB(i,k,j) = v_f - beta*LuIB(i,k,j)
-   enddo
+!     rhsuIB(i,k,j) = v_f - beta*LuIB(i,k,j)
+!   enddo
 
    do j = nyuIB1(myid),nyuIB2(myid)
      call phys_to_four_du(rhsuIB(1,1,j),bandPL(myid))
@@ -329,25 +330,26 @@ subroutine immersed_boundaries_V(u,rhsu,Lu,grid,myid)
      rhsuIB(i,k,j) = -beta*LuIB(i,k,j)
    enddo
 
-   do ilist = 1,nlist_ib_f(grid)
-     i = f_list_ib(1,ilist,grid)
-     k = f_list_ib(2,ilist,grid)
-     j = f_list_ib(3,ilist,grid)
-     i2= f_list_ib(4,ilist,grid)
-     k2= f_list_ib(5,ilist,grid)
-     j2= f_list_ib(6,ilist,grid)
-     i3= f_list_ib(7,ilist,grid)
-     k3= f_list_ib(8,ilist,grid)
-     j3= f_list_ib(9,ilist,grid)
+! Mel: Doesnt work at the moment 
+!   do ilist = 1,nlist_ib_f(grid)
+!     i = f_list_ib(1,ilist,grid)
+!     k = f_list_ib(2,ilist,grid)
+!     j = f_list_ib(3,ilist,grid)
+!     i2= f_list_ib(4,ilist,grid)
+!     k2= f_list_ib(5,ilist,grid)
+!     j2= f_list_ib(6,ilist,grid)
+!     i3= f_list_ib(7,ilist,grid)
+!     k3= f_list_ib(8,ilist,grid)
+!     j3= f_list_ib(9,ilist,grid)
 
-!     w1= w_list_ib(3,ilist,grid) ! weighting if boundary v is non-zero
-     w2= w_list_ib(1,ilist,grid)
-     w3= w_list_ib(2,ilist,grid)
+!!     w1= w_list_ib(3,ilist,grid) ! weighting if boundary v is non-zero
+!     w2= w_list_ib(1,ilist,grid)
+!     w3= w_list_ib(2,ilist,grid)
 
-     v_f = w2*u2PL(i2,k2,j2) + w3*u2PL(i3,k3,j3)    
+!     v_f = w2*u2PL(i2,k2,j2) + w3*u2PL(i3,k3,j3)    
 
-     rhsuIB(i,k,j) = v_f - beta*LuIB(i,k,j)
-   enddo
+!     rhsuIB(i,k,j) = v_f - beta*LuIB(i,k,j)
+!   enddo
 
    do j = nyvIB1(myid),nyvIB2(myid)
      call phys_to_four_du(rhsuIB(1,1,j),bandPL(myid))
@@ -411,25 +413,26 @@ subroutine immersed_boundaries_U_trick(u,rhsu,Lu,grid,myid)
      end if 
    enddo
 
-   do ilist = 1,nlist_ib_f(grid)
-     i = f_list_ib(1,ilist,grid)
-     k = f_list_ib(2,ilist,grid)
-     j = f_list_ib(3,ilist,grid)
-     i2= f_list_ib(4,ilist,grid)
-     k2= f_list_ib(5,ilist,grid)
-     j2= f_list_ib(6,ilist,grid)
-     i3= f_list_ib(7,ilist,grid)
-     k3= f_list_ib(8,ilist,grid)
-     j3= f_list_ib(9,ilist,grid)
+! Mel: Doesnt work at the moment 
+!   do ilist = 1,nlist_ib_f(grid)
+!     i = f_list_ib(1,ilist,grid)
+!     k = f_list_ib(2,ilist,grid)
+!     j = f_list_ib(3,ilist,grid)
+!     i2= f_list_ib(4,ilist,grid)
+!     k2= f_list_ib(5,ilist,grid)
+!     j2= f_list_ib(6,ilist,grid)
+!     i3= f_list_ib(7,ilist,grid)
+!     k3= f_list_ib(8,ilist,grid)
+!     j3= f_list_ib(9,ilist,grid)
      
-!     w1= w_list_ib(3,ilist,grid) ! weighting if boundary v is non-zero
-     w2= w_list_ib(1,ilist,grid)
-     w3= w_list_ib(2,ilist,grid)
+!!     w1= w_list_ib(3,ilist,grid) ! weighting if boundary v is non-zero
+!     w2= w_list_ib(1,ilist,grid)
+!     w3= w_list_ib(2,ilist,grid)
 
-     v_f = w2*u1PL(i2,k2,j2) + w3*u1PL(i3,k3,j3)
+!     v_f = w2*u1PL(i2,k2,j2) + w3*u1PL(i3,k3,j3)
 
-     rhsuIB(i,k,j) = v_f - beta*LuIB(i,k,j)
-   enddo
+!     rhsuIB(i,k,j) = v_f - beta*LuIB(i,k,j)
+!   enddo
 
    do j = nyuIB1(myid),nyuIB2(myid)
      call phys_to_four_du(rhsuIB(1,1,j),bandPL(myid))
@@ -492,25 +495,26 @@ subroutine immersed_boundaries_V_trick(u,rhsu,Lu,grid,myid)
      end if
    enddo
 
-   do ilist = 1,nlist_ib_f(grid)
-     i = f_list_ib(1,ilist,grid)
-     k = f_list_ib(2,ilist,grid)
-     j = f_list_ib(3,ilist,grid)
-     i2= f_list_ib(4,ilist,grid)
-     k2= f_list_ib(5,ilist,grid)
-     j2= f_list_ib(6,ilist,grid)
-     i3= f_list_ib(7,ilist,grid)
-     k3= f_list_ib(8,ilist,grid)
-     j3= f_list_ib(9,ilist,grid)
+! Mel: Doesnt work at the moment 
+!   do ilist = 1,nlist_ib_f(grid)
+!     i = f_list_ib(1,ilist,grid)
+!     k = f_list_ib(2,ilist,grid)
+!     j = f_list_ib(3,ilist,grid)
+!     i2= f_list_ib(4,ilist,grid)
+!     k2= f_list_ib(5,ilist,grid)
+!     j2= f_list_ib(6,ilist,grid)
+!     i3= f_list_ib(7,ilist,grid)
+!     k3= f_list_ib(8,ilist,grid)
+!     j3= f_list_ib(9,ilist,grid)
 
-!     w1= w_list_ib(3,ilist,grid) ! weighting if boundary v is non-zero
-     w2= w_list_ib(1,ilist,grid)
-     w3= w_list_ib(2,ilist,grid)
+!!     w1= w_list_ib(3,ilist,grid) ! weighting if boundary v is non-zero
+!     w2= w_list_ib(1,ilist,grid)
+!     w3= w_list_ib(2,ilist,grid)
 
-     v_f = w2*u2PL(i2,k2,j2) + w3*u2PL(i3,k3,j3)    
+!     v_f = w2*u2PL(i2,k2,j2) + w3*u2PL(i3,k3,j3)    
 
-     rhsuIB(i,k,j) = v_f - beta*LuIB(i,k,j)
-   enddo
+!     rhsuIB(i,k,j) = v_f - beta*LuIB(i,k,j)
+!   enddo
 
    do j = nyvIB1(myid),nyvIB2(myid)
      call phys_to_four_du(rhsuIB(1,1,j),bandPL(myid))
